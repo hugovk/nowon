@@ -6,6 +6,10 @@ require 'json'
 
 stations = %w{radio1 radio2 radio3 radio4 radio4extra 5live 6music}
 
+if ARGV[0].to_s.empty?
+  ARGV[0] = "all"
+end
+
 unless ARGV[0] && ((stations + ['all']).flatten).include?(ARGV[0])
   puts "Usage: nowon [#{stations.join("|")}|all]"
   exit
